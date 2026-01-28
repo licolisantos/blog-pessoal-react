@@ -1,11 +1,13 @@
-import { House, Article, Tag, User, PencilSimple, Books } from '@phosphor-icons/react'
+import { House, Article, Tag, User } from '@phosphor-icons/react'
 import acollyImg from '../../assets/acolly-tech.png'
+import Card from '../../components/card/Card'
+import Contador from '../contador/Contador'
 
 function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-50 to-slate-100">
       {/* Header */}
-      <header className="bg-gradient-to-r from-indigo-900 via-slate-800 to-indigo-900 text-white py-16 px-6 text-center">
+      <header className="bg-gradient-to-r from-indigo-900 via-slate-800 to-indigo-900 text-white py-12 px-6 text-center">
         <h1 className="text-4xl md:text-5xl font-bold mb-3 tracking-tight drop-shadow-lg">
           Licóli Santos
         </h1>
@@ -34,35 +36,31 @@ function Home() {
 
       {/* Main */}
       <main className="flex-1 max-w-5xl mx-auto w-full py-10 px-6">
-        {/* Card Boas-vindas */}
-        <section className="bg-white rounded-2xl shadow-xl p-8 mb-8 border-l-4 border-pink-500 hover:shadow-2xl transition-shadow">
-          <h2 className="text-2xl font-bold text-slate-800 mb-4">
-            Bem-vindo ao meu Blog Pessoal
-          </h2>
-          <p className="text-slate-600 mb-3 leading-relaxed">
-            Este espaço foi criado para compartilhar minha trajetória profissional,
-            meus aprendizados na área de tecnologia e minha transição de carreira
-            para o desenvolvimento web.
-          </p>
-          <p className="text-slate-600 mb-6 leading-relaxed">
-            Atualmente, estou em formação Full Stack JavaScript pela Generation Brasil,
-            além de cursar Tecnologia da Informação na Universidade Anhembi Morumbi.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-all hover:shadow-lg hover:-translate-y-1 active:translate-y-0">
-              <PencilSimple size={20} weight="bold" /> Nova Postagem
-            </button>
-            <button className="flex items-center gap-2 bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 px-6 rounded-xl transition-all hover:shadow-lg hover:-translate-y-1 active:translate-y-0">
-              <Books size={20} weight="bold" /> Ver Postagens
-            </button>
+        
+        {/* Seção: Exemplo de Props */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-slate-800 mb-4">Exemplo de Props</h2>
+          <div className="grid md:grid-cols-2 gap-4">
+            <Card 
+              titulo="Bem-vindo ao Blog!" 
+              texto="Este card recebe dados via Props do componente pai."
+            />
+            <Card 
+              titulo="Tecnologias" 
+              texto="React, TypeScript, Tailwind CSS e Phosphor Icons."
+            />
           </div>
         </section>
 
-        {/* Card Tecnologias */}
-        <section className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-pink-500 hover:shadow-2xl transition-shadow">
-          <h2 className="text-2xl font-bold text-slate-800 mb-6">
-            Tecnologias em estudo
-          </h2>
+        {/* Seção: Exemplo de Hooks */}
+        <section className="mb-8">
+          <h2 className="text-2xl font-bold text-slate-800 mb-4">Exemplo de Hooks (useState + useEffect)</h2>
+          <Contador />
+        </section>
+
+        {/* Seção: Tecnologias */}
+        <section className="bg-white rounded-2xl shadow-xl p-8 border-l-4 border-pink-500">
+          <h2 className="text-2xl font-bold text-slate-800 mb-6">Tecnologias em estudo</h2>
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex-1">
               <div className="flex flex-wrap gap-3">
