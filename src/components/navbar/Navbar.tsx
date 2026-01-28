@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { House, Article, Tag, User, SignOut } from '@phosphor-icons/react'
 import { AuthContext } from '../../contexts/AuthContext'
+import { ToastAlerta } from '../../utils/ToastAlerta'
 
 function Navbar() {
   const navigate = useNavigate()
@@ -9,7 +10,7 @@ function Navbar() {
 
   function logout() {
     handleLogout()
-    alert('Usuário deslogado com sucesso!')
+    ToastAlerta('Usuário desconectado com sucesso!', 'info')
     navigate('/login')
   }
 

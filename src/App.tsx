@@ -1,4 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { AuthProvider } from './contexts/AuthContext'
 import Navbar from './components/navbar/Navbar'
 import Footer from './components/footer/Footer'
@@ -16,6 +18,7 @@ import DeletarPostagem from './components/postagem/deletarpostagem/DeletarPostag
 function App() {
   return (
     <AuthProvider>
+      <ToastContainer />
       <BrowserRouter>
         <Navbar />
         <div className="min-h-[80vh]">
