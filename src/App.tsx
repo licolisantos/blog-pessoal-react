@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer'
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import Cadastro from './pages/cadastro/Cadastro'
+import Perfil from './pages/perfil/Perfil'
 import ListaTemas from './components/tema/listatemas/ListaTemas'
 import FormTema from './components/tema/formtema/FormTema'
 import DeletarTema from './components/tema/deletartema/DeletarTema'
@@ -31,6 +32,7 @@ function App() {
             <Route path="/cadastrarpostagem" element={<FormPostagem />} />
             <Route path="/editarpostagem/:id" element={<FormPostagem />} />
             <Route path="/deletarpostagem/:id" element={<DeletarPostagem />} />
+            <Route path="/perfil" element={<Perfil />} />
           </Routes>
         </div>
         <Footer />
