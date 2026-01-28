@@ -1,21 +1,20 @@
-import { useState, type ChangeEvent, type FormEvent } from 'react'
+import { useState, useContext, useEffect, type ChangeEvent, type FormEvent } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { ClipLoader } from 'react-spinners'
-import { login } from '../../services/Service'
+import { AuthContext } from '../../contexts/AuthContext'
 import type UsuarioLogin from '../../models/UsuarioLogin'
 
 function Login() {
   const navigate = useNavigate()
-  const [isLoading, setIsLoading] = useState(false)
+  const { usuario, handleLogin, isLoading } = useContext(AuthContext)
 
-  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({
-    id: 0,
-    nome: '',
-    usuario: '',
-    senha: '',
-    foto: '',
-    token: ''
-  })
+  const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin)
+
+  useEffect(() => {
+    if (usuario.token !== '') {
+      navigate('/home')
+    }
+  }, [usuario])
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     setUsuarioLogin({
@@ -26,17 +25,7 @@ function Login() {
 
   async function logar(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    setIsLoading(true)
-
-    try {
-      await login('/usuarios/logar', usuarioLogin, setUsuarioLogin)
-      alert('Usuário autenticado com sucesso!')
-      navigate('/home')
-    } catch (error) {
-      alert('Usuário ou senha inválidos!')
-    }
-
-    setIsLoading(false)
+    await handleLogin(usuarioLogin)
   }
 
   return (
