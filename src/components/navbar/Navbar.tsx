@@ -30,6 +30,9 @@ function Navbar() {
           <Link to="/temas" className="flex items-center gap-2 hover:text-pink-300 transition-colors">
             <Tag size={20} weight="fill" /> Temas
           </Link>
+          <Link to="/cadastrartema" className="flex items-center gap-2 hover:text-pink-300 transition-colors">
+            <Tag size={20} /> Cadastrar Tema
+          </Link>
           <Link to="/perfil" className="flex items-center gap-2 hover:text-pink-300 transition-colors">
             <User size={20} weight="fill" /> Perfil
           </Link>
